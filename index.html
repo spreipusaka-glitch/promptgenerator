@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prompt Generator Event & Evergreen</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div>
+          <p class="eyebrow">Prompt Generator untuk Adobe Firefly & AI lainnya</p>
+          <h1>Generator Prompt Event, Musiman, US Calendar, & Evergreen</h1>
+          <p class="subtitle">
+            Pilih tema event, gaya visual, dan kata kunci. Aplikasi akan membuat kombinasi prompt
+            panjang (≥ 400 karakter) dengan aturan 1/3 fotografi & komposisi centered.
+          </p>
+        </div>
+        <div class="badge">Tanpa Makhluk Hidup (kecuali diminta)</div>
+      </header>
+
+      <section class="panel">
+        <h2>Atur Prompt</h2>
+        <form id="promptForm" class="form-grid">
+          <label>
+            Pilih kategori event
+            <select id="categorySelect" required></select>
+          </label>
+
+          <label>
+            Pilih tema event
+            <select id="themeSelect" required></select>
+          </label>
+
+          <label>
+            Gaya visual
+            <select id="styleSelect" required>
+              <option value="ultra">Foto ultra realistis</option>
+              <option value="art">Ilustrasi / art / lukisan</option>
+            </select>
+          </label>
+
+          <label>
+            Kata kunci tambahan (opsional)
+            <input
+              id="keywordInput"
+              type="text"
+              placeholder="contoh: neon gradient, paper craft, brass texture"
+              maxlength="120"
+            />
+          </label>
+
+          <label class="checkbox">
+            <input id="allowLiving" type="checkbox" />
+            Izinkan makhluk hidup jika dibutuhkan
+          </label>
+
+          <label>
+            Jumlah prompt
+            <input id="countInput" type="number" min="1" max="6" value="3" />
+          </label>
+
+          <button type="submit">Buat Prompt</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Hasil Prompt</h2>
+          <button id="copyAll" type="button" class="ghost">Salin Semua</button>
+        </div>
+        <div id="output" class="output"></div>
+      </section>
+
+      <section class="panel info">
+        <h2>Catatan Aturan</h2>
+        <ul>
+          <li>Prompt selalu memakai prinsip 1/3 fotografi dan komposisi centered.</li>
+          <li>Tidak ada makhluk hidup, kecuali opsi "Izinkan makhluk hidup" diaktifkan.</li>
+          <li>Setiap prompt minimal 400 karakter agar detailnya kaya dan siap pakai di AI image.</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
